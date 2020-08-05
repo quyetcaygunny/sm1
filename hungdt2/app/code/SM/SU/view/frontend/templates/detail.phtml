@@ -1,0 +1,27 @@
+<?php
+
+/** @var \SM\SU\Block\Blog\BlogDetail $block */
+    $blog = $block->loadDetailBlog();
+    //var_dump($blog);
+?>
+
+<header class="blog__post-header" style="text-align: center;">
+    <h1 class="blog__post-title" itemprop="headline"><?=$blog->getName();?></h1>
+</header>
+<div class="content" style="margin-bottom: 100px;">
+    <div style="padding: 20px;">
+        <img width="600" height="400" src="<?= $blog->getImageUrl(); ?>" alt="image" id="imgcnt"/><br/>
+        <p style="padding: 10px;"><?=$blog->getDescription();?></p><br/>
+        <p><?=$blog->getContent();?></p><br/>
+
+        <?php if ($blog->getTags()->count()): ?>
+            <span class="blog__post-footer-tags">
+            <i class="fa fa-fw fa-tags"></i>
+
+            <?php foreach ($blog->getTags() as $tag): ?>
+                <a href="<?= $tag->getUrl() ?>" rel="tag"><?= $tag->getName() ?></a>
+            <?php endforeach ?>
+        </span>
+        <?php endif ?>
+    </div>
+</div>

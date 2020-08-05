@@ -1,0 +1,70 @@
+<?php
+/** @var \SM\SU\Block\Blog\BlogDetail $block */
+$products = $block->displayProducts();
+//    foreach ($products as $item) {
+//        var_dump($item);
+//    }
+//    die();
+?>
+<h2 class="w3-center">Products</h2>
+<?php if ($products != null) { ?>
+    <div class="w3-content w3-display-container">
+        <div class="hbr-main">
+            <div style="margin: 0 -10px;">
+                <div class="hbr-content hbr-slider">
+                    <?php foreach ($products as $item): ?>
+                        <div >
+                            <img width="100" height="200" src="<?= $block->getProductThumbnail($item->getData('thumbnail')); ?>">
+                            <h4><?= $item->getData('name'); ?></h4>
+                            <h4>Price: <?= $block->getFormattedPrice($item->getData('price')); ?></h4>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+
+
+<!--        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>-->
+<!--        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>-->
+<!--    </div>-->
+        <script type="text/javascript" xml="space">// <![CDATA[
+            require(['jquery', 'cpowlcarousel'], function ($) {
+                jQuery(document).ready(function () {
+                    jQuery(".hbr-slider").owlCarousel({
+                        items: 3,
+                        itemsDesktop: [1080, 4],
+                        itemsDesktopSmall: [860, 3],
+                        itemsTablet: [768, 3],
+                        itemsTabletSmall: [639, 3],
+                        itemsMobile: [479, 2],
+                        pagination: false,
+                        navigationText: ['<div class="lft-btn"><i class="fa fa-angle-left"></i></div>', '<div class="rgt-btn"><i class="fa fa-angle-right"></div>'],
+                        navigation: true,
+                    });
+                });
+            });
+            // ]]></script>
+<!--    <script>-->
+<!--        var slideIndex = [[]];-->
+<!--        showDivs(slideIndex);-->
+<!---->
+<!--        function plusDivs(n) {-->
+<!--            showDivs(slideIndex += n);-->
+<!--        }-->
+<!---->
+<!--        function showDivs(n) {-->
+<!--            var i;-->
+<!--            var x = document.getElementsByClassName("mySlides");-->
+<!--            if (n > x.length) {slideIndex = 1}-->
+<!--            if (n < 1) {slideIndex = x.length}-->
+<!--            for (i = 0; i < x.length; i++) {-->
+<!--                x[i].style.display = "none";-->
+<!--            }-->
+<!--            x[slideIndex-1].style.display = "block";-->
+<!--        }-->
+<!--    </script>-->
+<?php } else { ?>
+    <small>No related Products.</small>
+    <?php
+}
+?>

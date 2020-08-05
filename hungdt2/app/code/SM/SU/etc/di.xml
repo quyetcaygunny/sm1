@@ -1,0 +1,11 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="SM\SU\Api\Data\CategoryInterface" type="SM\SU\Model\Category" />
+    <preference for="SM\SU\Api\CategoryRepositoryInterface" type="SM\SU\Model\CategoryRepository" />
+    <preference for="SM\SU\Api\Data\BlogInterface" type="SM\SU\Model\Blog" />
+    <preference for="SM\SU\Api\BlogRepositoryInterface" type="SM\SU\Model\BlogRepository" />
+    <preference for="SM\SU\Api\Data\TagInterface" type="SM\SU\Model\Tag" />
+    <preference for="SM\SU\Api\TagRepositoryInterface" type="SM\SU\Model\TagRepository" />
+    <type name="Magento\Theme\Block\Html\Topmenu">
+        <plugin name="add_menu_item_plugin" type="SM\SU\Plugin\Topmenu" sortOrder="10" disabled="false"/>
+    </type>
+</config>

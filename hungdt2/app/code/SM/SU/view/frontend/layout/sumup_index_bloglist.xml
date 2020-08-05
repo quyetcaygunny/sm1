@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+        <css src="SM_SU::css/owl.carousel.css"/>
+        <css src="SM_SU::css/owl.theme.css"/>
+        <css src="SM_SU::css/owl.transitions.css"/>
+        <css src="SM_SU::css/fancybox/jquery.fancybox.css"/>
+        <css src="SM_SU::css/font-awesome.min.css"/>
+<!--        <link src="SM_SU::js/owl.carousel.js"/>-->
+    </head>
+<!--        <update handle="blog_default"/>-->
+    <body>
+        <referenceContainer name="columns.top">
+            <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="html/title.phtml"/>
+            <container name="page.messages" htmlTag="div" htmlClass="page messages">
+                <block class="Magento\Framework\View\Element\Template" name="ajax.message.placeholder" template="Magento_Theme::html/messages.phtml"/>
+                <block class="Magento\Framework\View\Element\Messages" name="messages" as="messages" template="Magento_Theme::messages.phtml"/>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Blog List</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="SM\SU\Block\Blog\BlogList" name="bloglist" template="SM_SU::list.phtml"  cacheable="false" >
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+

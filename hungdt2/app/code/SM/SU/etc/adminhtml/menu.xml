@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+
+    <menu>
+        <add id="SM_SU::blog" title="Blog" module="SM_SU" sortOrder="700"
+             resource="SM_SU::blog" parent="Magento_Backend::content"/>
+
+        <add id="SM_SU::blogs_blogs" title="Blogs" translate="title" module="SM_SU"
+             parent="SM_SU::blog" sortOrder="10"
+             action="sumup/blog/index" resource="SM_SU::blogs"/>
+
+        <add id="SM_SU::blogs_categories" title="Categories" translate="title" module="SM_SU"
+             parent="SM_SU::blog" sortOrder="20"
+             action="sumup/category/categorylist" resource="SM_SU::blogs_categories"/>
+
+        <add id="SM_SU::blog_settings" title="Settings" module="SM_SU" sortOrder="30"
+             resource="SM_SU::blog_settings" parent="SM_SU::blog" action="adminhtml/system_config/edit/section/blog"/>
+
+    </menu>
+</config>
