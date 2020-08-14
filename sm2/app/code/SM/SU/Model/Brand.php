@@ -105,7 +105,7 @@ class Brand extends \Magento\Framework\Model\AbstractModel
      */
     public function getProductCollection()
     {
-        $collection = $this->_productCollectionFactory->create()->addAttributeToSelect('*')->addAttributeToFilter('product_brand',array('eq'=>$this->getId()));
+        $collection = $this->_productCollectionFactory->create()->addAttributeToSelect('*')->addAttributeToFilter('product_brand',array('eq'=>$this->getOptionId()));
         return $collection;
     }
 
@@ -178,5 +178,9 @@ class Brand extends \Magento\Framework\Model\AbstractModel
                 ) . $thumbnail;
         };
         return $url;
+    }
+    public function getTag()
+    {
+        return $this->getData('first_letter');
     }
 }

@@ -26,7 +26,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
         $store = $this->_storeManager->getStore($store);
         $config = $this->scopeConfig->getValue(
-            'smartosc/' . $key,
+            'sumup/' . $key,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
             $store);
         return $config;
