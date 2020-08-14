@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="brand_listing_data_source" xsi:type="string">SM\SU\Model\ResourceModel\Brand\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="SM\SU\Model\ResourceModel\Brand\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sumup_brand</argument>
+            <argument name="eventPrefix" xsi:type="string">sumup_brand_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">brand_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">SM\SU\Model\ResourceModel\Brand</argument>
+        </arguments>
+    </type>
+    <virtualType name="BrandGridDataProvider" type="SM\SU\Ui\DataProvider\Brand\BrandDataProvider">
+        <arguments>
+            <argument name="filterPool" xsi:type="object" shared="false">BrandGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="SM\SU\Model\Layer\Resolver">
+        <arguments>
+            <argument name="layersPool" xsi:type="array">
+                <item name="brand" xsi:type="string">SM\SU\Model\Layer\Brand</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="SM\SU\Model\Layer\Brand">
+        <arguments>
+            <argument name="context" xsi:type="object">Magento\Catalog\Model\Layer\Category\Context</argument>
+        </arguments>
+    </type>
+    <type name="Magetop\Brand\Block\Brand\Product\ListProduct">
+        <arguments>
+            <argument name="layerResolver" xsi:type="object">\SU\Model\Layer\Resolver</argument>
+        </arguments>
+    </type>
+</config>

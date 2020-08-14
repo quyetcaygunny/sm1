@@ -1,0 +1,10 @@
+<?php if ($_description = $block->getCurrentBrand()->getDescription()): ?>
+    <div class="brand-description">
+        <?php echo $this->helper('SM\SU\Helper\Data')->filter($_description) ?>
+    </div>
+<?php endif; ?>
+<?php if ($country = $block->getCurrentBrand()->getCountry()): ?>
+    <div class="brand-description">
+        Country : <?php echo $this->helper('SM\SU\Helper\Data')->filter($block->getCountryname($country)) ?>
+    </div>
+<?php endif; ?>

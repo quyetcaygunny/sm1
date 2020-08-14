@@ -93,25 +93,25 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 
         return null;
     }
-    public function getProducts($blog_id)
-    {
-//        $table1 = $this->_resource->getTableName('sumup_blog_products');
-//        $table2 = $this->_resource->getTableName('catalog_product_entity');
-        $table1='sumup_blog_products';
-        $table2='catalog_product_entity';
-        $data = $this->getConnection()->fetchAll('SELECT * FROM ' . $table1 . ' as `blogproducts`
-            INNER JOIN ' . $table2 . ' as `product` ON blogproducts.product_id = product.entity_id WHERE blogproducts.blog_id = ' . $blog_id . ';');
+        public function getProducts($blog_id)
+        {
+    //        $table1 = $this->_resource->getTableName('sumup_blog_products');
+    //        $table2 = $this->_resource->getTableName('catalog_product_entity');
+            $table1='sumup_blog_products';
+            $table2='catalog_product_entity';
+            $data = $this->getConnection()->fetchAll('SELECT * FROM ' . $table1 . ' as `blogproducts`
+                INNER JOIN ' . $table2 . ' as `product` ON blogproducts.product_id = product.entity_id WHERE blogproducts.blog_id = ' . $blog_id . ';');
 
-        $product_ids = [];
-        foreach ($data as $blogcate) {
-            array_push($product_ids, $blogcate['product_id']);
-        }
-        foreach ($this as $blog) {
-            if ($blog_id == $blog->getId()) {
-                $blog->setData('products', $product_ids);
-                return $blog;
+            $product_ids = [];
+            foreach ($data as $blogcate) {
+                array_push($product_ids, $blogcate['product_id']);
+            }
+            foreach ($this as $blog) {
+                if ($blog_id == $blog->getId()) {
+                    $blog->setData('products', $product_ids);
+                    return $blog;
+                }
             }
         }
-    }
 
 }

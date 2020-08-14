@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <smartosc>
+            <general_settings>
+                <route>shopbybrand.html</route>
+                <url_prefix>brands</url_prefix>
+                <url_suffix>.html</url_suffix>
+                <enable_menu>1</enable_menu>
+                <enable_search>1</enable_search>
+            </general_settings>
+        </smartosc>
+    </default>
+</config>

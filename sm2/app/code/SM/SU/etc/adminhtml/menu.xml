@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="SM_SU::brand" title="Shop By Brand" module="SM_SU" sortOrder="80"  resource="SM_SU::brand"/>
+        <add id="SM_SU::manage_brand" title="Manage Brands" module="SM_SU" sortOrder="10" parent="SM_SU::brand" action="sumup/brand/" resource="SM_SU::manage_brand"/>
+        <add id="SM_SU::configuration" title="Configuration" module="SM_SU" sortOrder="20" parent="SM_SU::brand" action="adminhtml/system_config/edit/section/brand" resource="SM_SU::configuration"/>
+    </menu>
+</config>

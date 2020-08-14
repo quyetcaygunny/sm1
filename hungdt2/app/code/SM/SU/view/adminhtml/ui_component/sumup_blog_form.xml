@@ -19,6 +19,12 @@
             <item name="save" xsi:type="string">SM\SU\Block\Adminhtml\Blog\Edit\SaveButton</item>
         </item>
     </argument>
+<!--    <settings>-->
+<!--        <layout>-->
+<!--            <navContainerName>left</navContainerName>-->
+<!--            <type>tabs</type>-->
+<!--        </layout>-->
+<!--    </settings>-->
     <dataSource name="sumup_blog_form_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
@@ -53,21 +59,21 @@
                 <dataScope>blog_id</dataScope>
             </settings>
         </field>
-        <field name="name" formElement="input">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="source" xsi:type="string">blog</item>
-                </item>
-            </argument>
-            <settings>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
-                <dataType>text</dataType>
-                <label translate="true">Blog Name</label>
-                <dataScope>name</dataScope>
-            </settings>
-        </field>
+<!--        <field name="name" formElement="input">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="source" xsi:type="string">blog</item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--            <settings>-->
+<!--                <validation>-->
+<!--                    <rule name="required-entry" xsi:type="boolean">true</rule>-->
+<!--                </validation>-->
+<!--                <dataType>text</dataType>-->
+<!--                <label translate="true">Blog Name</label>-->
+<!--                <dataScope>name</dataScope>-->
+<!--            </settings>-->
+<!--        </field>-->
 
         <field name="short_description" formElement="textarea">
             <argument name="data" xsi:type="array">
@@ -512,4 +518,5 @@
             </container>
         </dynamicRows>
     </fieldset>
+
 </form>

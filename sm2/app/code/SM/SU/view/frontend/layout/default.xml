@@ -1,0 +1,16 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="SM_SU::css/mgs_brand.css" media="all"/>
+        <css src="SM_SU::css/owl.carousel.css" media="all"/>
+        <css src="SM_SU::css/owl.theme.css" media="all"/>
+        <css src="SM_SU::css/owl.transitions.css" media="all"/>
+    </head>
+    <body>
+
+        <referenceContainer name="catalog.topnav">
+            <block class="SM\SU\Block\Category\Menu"
+                   name="gallery.link" template="SM_SU::category/topmenu.phtml">
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -9,7 +9,7 @@
         <css src="SM_SU::css/font-awesome.min.css"/>
 <!--        <link src="SM_SU::js/owl.carousel.js"/>-->
     </head>
-<!--        <update handle="blog_default"/>-->
+    <update handle="brand_dafault"/>
     <body>
         <referenceContainer name="columns.top">
             <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="html/title.phtml"/>
@@ -24,9 +24,10 @@
             </action>
         </referenceBlock>
         <referenceContainer name="content">
-            <block class="SM\SU\Block\Blog\BlogList" name="bloglist" template="SM_SU::list.phtml"  cacheable="false" >
+            <block class="SM\SU\Block\Blog\BlogList" name="bloglist" template="SM_SU::list.phtml"  >
             </block>
         </referenceContainer>
+
     </body>
 </page>
 
