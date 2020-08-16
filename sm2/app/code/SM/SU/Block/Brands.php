@@ -55,21 +55,37 @@ class Brands extends \Magento\Framework\View\Element\Template
         parent::__construct($context, $data);
     }
 
-//    public function _construct(){
-//        if(!$this->getConfig('general_settings/enable') || !$this->getConfig('brand_block/enable')) return;
+//    public function _construct()
+//    {
+////        if (!$this->getConfig('general_settings/enable')) return;
 //        parent::_construct();
-//        $carousel_layout = $this->getConfig('brand_block/carousel_layout');
-//        $template = '';
-//        if($carousel_layout == 'owl_carousel'){
-//            $template = 'block/brand_list_owl.phtml';
-//        }else{
-//            $template = 'block/brand_list_bootstrap.phtml';
-//        }
-//        if(!$this->getTemplate() && $template!=''){
-//            $this->setTemplate($template);
-//        }
+//        $this->addData(
+//            ['cache_lifetime' => 86400, 'cache_tags' => [\Magento\Catalog\Model\Product::CACHE_TAG]]
+//        );
+//
 //    }
-
+    protected function _addBreadcrumbs()
+    {
+        $breadcrumbsBlock = $this->getLayout()->getBlock('breadcrumbs');
+        $baseUrl = $this->_storeManager->getStore()->getBaseUrl();
+//        $pageTitle = $this->_brandHelper->getConfig('list_page_settings/title') ? $this->_brandHelper->getConfig('list_page_settings/title') : 'Shop By Brand';
+        $breadcrumbsBlock->addCrumb(
+            'home',
+            [
+                'label' => __('Home'),
+                'title' => __('Go to Home Page'),
+                'link' => $baseUrl
+            ]
+        );
+        $breadcrumbsBlock->addCrumb(
+            'brand',
+            [
+                'label' => 'Shop By Brand',
+                'title' => 'Shop By Brand',
+                'link' => ''
+            ]
+        );
+    }
     public function getConfig($key, $default = '')
     {
         $widget_key = explode('/', $key);
@@ -83,23 +99,23 @@ class Brands extends \Magento\Framework\View\Element\Template
         }
         return $result;
     }
-    protected function _prepareLayout()
-    {
-        parent::_prepareLayout();
-        $this->pageConfig->getTitle()->set(__('Brand List'));
-        //if ($this->getCustomCollection()) {
-        $pager = $this->getLayout()->createBlock(
-            'Magento\Theme\Block\Html\Pager',
-            'custom.history.pager'
-        )->setAvailableLimit([ 5 => 5, 10 => 10, 15 => 15, 20 => 20])
-            ->setShowPerPage(true)->setCollection(
-                $this->getBrandCollection()
-            );
-        $this->setChild('pager', $pager);
-//         $this->getCustomCollection()->load();
-//         }
-        return $this;
-    }
+//    protected function _prepareLayout()
+//    {
+//        parent::_prepareLayout();
+//        //$this->pageConfig->getTitle()->set(__('Brand List'));
+//        //if ($this->getCustomCollection()) {
+//        $pager = $this->getLayout()->createBlock(
+//            'Magento\Theme\Block\Html\Pager',
+//            'custom.history.pager'
+//        )->setAvailableLimit([ 5 => 5, 10 => 10, 15 => 15, 20 => 20])
+//            ->setShowPerPage(true)->setCollection(
+//                $this->getBrandCollection()
+//            );
+//        $this->setChild('pager', $pager);
+////         $this->getCustomCollection()->load();
+////         }
+//        return $this;
+//    }
     public function getPagerHtml()
     {
         return $this->getChildHtml('pager');
@@ -157,4 +173,5 @@ class Brands extends \Magento\Framework\View\Element\Template
         $collection->setVisibility($this->_catalogProductVisibility->getVisibleInCatalogIds());
         return count($collection);
     }
+
 }

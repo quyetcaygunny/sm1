@@ -5,7 +5,6 @@ $params = $this->getRequest()->getParams();
 ?>
 <div class="characters">
     <ul class="characters-filter">
-            <li class="<?php if (isset($params['char']) && $params['char'] === '0-9') { echo 'active';} else echo '';?>"><a title="<?php echo __('0-9'); ?>" href="<?php echo $helper->getBrandUrl() . '?char=0-9'; ?>"><?php echo __('0-9'); ?></a></li>
             <?php foreach (range('A', 'Z') as $char): ?>
                 <li class="<?php if (isset($params['char']) && $params['char'] === $char) { echo 'active';} else echo '';?>"><a href="<?php echo $helper->getBrandUrl() . '?char=' . $char; ?>"><?php echo $char; ?></a></li>
             <?php endforeach; ?>

@@ -12,7 +12,7 @@ use SM\SU\Model\ResourceModel\Brand\CollectionFactory;
 
 /**
  * Class Search
- * @package SM\SumUp\Block\Sidebar
+ * @package SM\SU\Block
  */
 class Search extends Template
 {
@@ -66,6 +66,6 @@ class Search extends Template
         $encodedData = $this->jsonHelper->jsonEncode($dataToEncode);
 
         return $encodedData;
-        //var_dump();
+        var_dump();
     }
 }

@@ -37,4 +37,5 @@
             <argument name="layerResolver" xsi:type="object">SM\SU\Model\Layer\Resolver</argument>
         </arguments>
     </type>
+
 </config>
