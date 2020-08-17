@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="actions">
-        <button type="submit" title="<?= __('Search') ?>" class="action search">
+        <button type="submit" title="<?= __('Brands') ?>" class="action search">
             <i class="fas fa-search"></i>
             Search
         </button>
@@ -36,7 +36,7 @@
     require(['jquery', 'mpDevbridgeAutocomplete'], function ($) {
         var visibleImage = true;
         $('#mpblog-search-box').autocomplete({
-            lookup: <?= $block->getSearchBlogData();?>,
+            lookup: <?= $block->getSearchBrandData();?>,
             lookupLimit: 5,
             maxHeight: 2000,
             minChars: 1,
@@ -50,7 +50,7 @@
                 var additionClass = '';
                 var html = "<div class='mpblog-suggestion'>";
                 if (visibleImage) {
-                    html += "<div class='mpblog-suggestion-left'><img class='img-responsive' src='" + suggestion.image + "' /></div>";
+                    html += "<div class='mpblog-suggestion-left'><img class='img-responsive' height='30px' src='" + suggestion.image + "' /></div>";
                     additionClass = 'image-visible';
                 }
                 html += "<div class='mpblog-suggestion-right " + additionClass + "'>" +

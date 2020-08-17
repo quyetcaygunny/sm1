@@ -71,6 +71,7 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
+
         if(!$this->_brandHelper->getConfig('general_settings/enable')){
             return $this->resultForwardFactory->create()->forward('noroute');
         }

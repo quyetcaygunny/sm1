@@ -138,8 +138,8 @@ class Brands extends \Magento\Framework\View\Element\Template
             }
 //            $collection->getSelect()
 //                ->columns(new \Zend_Db_Expr('SUBSTR(name, 1, 1) AS first_letter'));
-            $collection->setPageSize($pageSize);
-            $collection->setCurPage($page);
+//            $collection->setPageSize($pageSize);
+//            $collection->setCurPage($page);
             $this->_collection = $collection;
         }
         return $this->_collection;

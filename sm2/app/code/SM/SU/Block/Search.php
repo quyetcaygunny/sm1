@@ -43,9 +43,8 @@ class Search extends Template
      * @return string
      * @throws NoSuchEntityException
      */
-    public function getSearchBlogData()
+    public function getSearchBrandData()
     {
-        //die('dit cu m');
         $result = [];
         $brand = $this->collectionFactory->create();
 
@@ -54,8 +53,7 @@ class Search extends Template
                 $result[] = [
                     'value' => $item->getName(),
                     'url'   => $item->getUrl(),
-                    'image' => $item->getImage(),
-                    'desc'  => "12312",
+                    'image' => $item->getThumbnailUrl(),
                 ];
             }
         }

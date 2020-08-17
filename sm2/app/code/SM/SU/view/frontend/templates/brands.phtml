@@ -10,13 +10,13 @@ if ($this->getConfig('list_page_settings/small_image_width') != '') {
 if ($this->getConfig('list_page_settings/small_image_height') != '') {
     $height = $this->getConfig('list_page_settings/small_image_height');
 } else {
-    $height = 60;
+    $height = 100;
 }
 ?>
 <div class="shop-by-brand">
 
         <div class="description">
-            HUNGDZ
+            SHOP BY BRAND
         </div>
 
 
@@ -52,7 +52,7 @@ if ($this->getConfig('list_page_settings/small_image_height') != '') {
                                                      src="<?php echo $brand->getThumbnailUrl(); ?>">
                                             </a>
                                         </div>
-                                        <?php if ($this->getConfig('list_page_settings/show_brand_name')): ?>
+
                                             <h3 class="brand-title">
                                                 <a title="<?php echo $brand->getName(); ?>" href="<?php echo $brand->getUrl(); ?>">
                                                     <?php echo $brand->getName(); ?>
@@ -61,7 +61,7 @@ if ($this->getConfig('list_page_settings/small_image_height') != '') {
                                                     <?php endif; ?>
                                                 </a>
                                             </h3>
-                                        <?php endif; ?>
+
                                     </div>
                                 </li>
                             <?php endif; ?>
@@ -82,7 +82,7 @@ if ($this->getConfig('list_page_settings/small_image_height') != '') {
                                                  src="<?php echo $brand->getThumbnailUrl(); ?>">
                                         </a>
                                     </div>
-                                    <?php if ($this->getConfig('list_page_settings/show_brand_name')): ?>
+
                                         <h3 class="brand-title">
                                             <a title="<?php echo $brand->getName(); ?>" href="<?php echo $brand->getUrl(); ?>">
                                                 <?php echo $brand->getName(); ?>
@@ -91,7 +91,7 @@ if ($this->getConfig('list_page_settings/small_image_height') != '') {
                                                 <?php endif; ?>
                                             </a>
                                         </h3>
-                                    <?php endif; ?>
+
                                 </div>
                             </li>
                         <?php endif; ?>

@@ -14,7 +14,27 @@
                 <item name="url" xsi:type="string">*/*/new</item>
             </item>
         </item>
+        <item name="editorConfig" xsi:type="array">
+            <item name="selectProvider" xsi:type="string">brand_listing.brand_listing.brand_columns.ids</item>
+            <item name="enabled" xsi:type="boolean">true</item>
+            <item name="indexField" xsi:type="string">brand_id</item>
+            <item name="clientConfig" xsi:type="array">
+                <item name="saveUrl" xsi:type="url" path="sumup/brand/inlineEdit"/>
+                <item name="validateBeforeSave" xsi:type="boolean">false</item>
+            </item>
+        </item>
+        <item name="childDefaults" xsi:type="array">
+            <item name="fieldAction" xsi:type="array">
+                <item name="provider" xsi:type="string">brand_listing.brand_listing.brand_columns_editor</item>
+                <item name="target" xsi:type="string">startEdit</item>
+                <item name="params" xsi:type="array">
+                    <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                    <item name="1" xsi:type="boolean">true</item>
+                </item>
+            </item>
+        </item>
     </argument>
+
     <dataSource name="brand_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">BrandGridDataProvider</argument>
@@ -172,11 +192,52 @@
         </paging>
     </container>
     <columns name="brand_columns">
+<!--        <argument name="data" xsi:type="array">-->
+<!--            <item name="config" xsi:type="array">-->
+<!--&lt;!&ndash;                <item name="storageConfig" xsi:type="array">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <item name="provider" xsi:type="string">brand_listing.brand_listing.listing_top.bookmarks</item>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <item name="namespace" xsi:type="string">current</item>&ndash;&gt;-->
+<!--&lt;!&ndash;                </item>&ndash;&gt;-->
+<!--                <item name="editorConfig" xsi:type="array">-->
+<!--                    <item name="selectProvider" xsi:type="string">brand_listing.brand_listing.test_test_columns.ids</item>-->
+<!--                    <item name="enabled" xsi:type="boolean">true</item>-->
+<!--                    <item name="indexField" xsi:type="string">brand_id</item>-->
+<!--                    <item name="clientConfig" xsi:type="array">-->
+<!--                        <item name="saveUrl" xsi:type="url" path="sumup/brand/inlineEdit"/>-->
+<!--                        <item name="validateBeforeSave" xsi:type="boolean">false</item>-->
+<!--                    </item>-->
+<!--                </item>-->
+<!--                <item name="childDefaults" xsi:type="array">-->
+<!--                    <item name="fieldAction" xsi:type="array">-->
+<!--                        <item name="provider" xsi:type="string">brand_listing.brand_listing.brand_columns_editor</item>-->
+<!--                        <item name="target" xsi:type="string">startEdit</item>-->
+<!--                        <item name="params" xsi:type="array">-->
+<!--                            <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>-->
+<!--                            <item name="1" xsi:type="boolean">true</item>-->
+<!--                        </item>-->
+<!--                    </item>-->
+<!--&lt;!&ndash;                    <item name="storageConfig" xsi:type="array">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <item name="provider" xsi:type="string">brand_listing.brand_listing.listing_top.bookmarks</item>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <item name="root" xsi:type="string">columns.${ $.index }</item>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </item>&ndash;&gt;-->
+<!--                </item>-->
+<!--            </item>-->
+<!--        </argument>-->
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="storageConfig" xsi:type="array">
                     <item name="provider" xsi:type="string">brand_listing.brand_listing.listing_top.bookmarks</item>
                     <item name="namespace" xsi:type="string">current</item>
+                </item>
+                <item name="editorConfig" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">brand_listing.brand_listing.brand_columns.ids</item>
+                    <item name="enabled" xsi:type="boolean">true</item>
+                    <item name="indexField" xsi:type="string">brand_id</item>
+                    <item name="clientConfig" xsi:type="array">
+                        <item name="saveUrl" xsi:type="url" path="*/*/inlineEdit"/>
+                        <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                    </item>
                 </item>
                 <item name="childDefaults" xsi:type="array">
                     <item name="fieldAction" xsi:type="array">
@@ -300,13 +361,24 @@
         <column name="is_featured">
             <argument name="data" xsi:type="array">
                 <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="filter" xsi:type="string">select</item>-->
+<!--                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>-->
+<!--                    <item name="add_field" xsi:type="boolean">true</item>-->
+<!--                    <item name="dataType" xsi:type="string">select</item>-->
+<!--                    <item name="label" xsi:type="string" translate="true">Featured Brand</item>-->
+<!--                    <item name="sortOrder" xsi:type="number">90</item>-->
+<!--                </item>-->
                 <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">select</item>
+                    </item>
                     <item name="filter" xsi:type="string">select</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                     <item name="add_field" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">select</item>
-                    <item name="label" xsi:type="string" translate="true">Featured Brand</item>
-                    <item name="sortOrder" xsi:type="number">90</item>
+                    <item name="label" xsi:type="string" translate="true">Is Featured</item>
+                    <item name="sortOrder" xsi:type="number">4</item>
                 </item>
             </argument>
         </column>
@@ -326,6 +398,7 @@
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">select</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="editor" xsi:type="string">select</item>
                     <item name="add_field" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">select</item>
                     <item name="label" xsi:type="string" translate="true">Status</item>

@@ -130,7 +130,7 @@ class Brand extends \Magento\Framework\Model\AbstractModel
     public function getImageUrl()
     {
         $url = false;
-        $image = $this->getImage();
+        $image = $this->getImage()  ? $this->getImage() : '/sm/brand/placeholder.jpg';
         if ($image) {
             $url = $this->_storeManager->getStore()->getBaseUrl(
                     \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
@@ -171,7 +171,7 @@ class Brand extends \Magento\Framework\Model\AbstractModel
     public function getThumbnailUrl()
     {
         $url = false;
-        $thumbnail = $this->getSmallImage();
+        $thumbnail = $this->getSmallImage() ? $this->getSmallImage() : '/sm/brand/placeholder.jpg';
         if ($thumbnail) {
             $url = $this->_storeManager->getStore()->getBaseUrl(
                     \Magento\Framework\UrlInterface::URL_TYPE_MEDIA

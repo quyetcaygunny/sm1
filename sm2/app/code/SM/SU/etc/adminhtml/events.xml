@@ -10,7 +10,7 @@
     <event name="catalog_product_save_after">
         <observer name="sm_brand_saveproductbrand" instance="SM\SU\Observer\SaveProductBrandModel" />
     </event>
-    <event name="sm_product_attribute_update_after">
+    <event name="catalog_product_attribute_update_after">
         <observer name="sm_brand_saveattributeproductbrand" instance="SM\SU\Observer\MassUpdateAttributeBrandModel" />
     </event>
 </config>

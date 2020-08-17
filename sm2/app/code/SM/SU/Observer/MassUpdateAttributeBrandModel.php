@@ -71,7 +71,7 @@ class MassUpdateAttributeBrandModel implements ObserverInterface
                 foreach ($productBrands as $k => $v) {
                     if($v) {
                         foreach($_product_ids as $productId) {
-                            $connection->query('INSERT INTO ' . $table_name . ' VALUES ( ' . $v . ', ' . (int)$productId . ',0)');
+                            $connection->query('INSERT INTO ' . $table_name . '(brand_id,product_id,position)'.' VALUES ( ' . $v . ', ' . (int)$productId . ',0)');
                         }
 
                     }

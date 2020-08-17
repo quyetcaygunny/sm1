@@ -10,7 +10,7 @@ if ($this->getConfig('list_page_settings/small_image_width') != '') {
 if ($this->getConfig('list_page_settings/small_image_height') != '') {
     $height = $this->getConfig('list_page_settings/small_image_height');
 } else {
-    $height = 60;
+    $height = 100;
 }
 ?>
 <?php if ($collection->count()): ?>
@@ -24,7 +24,7 @@ if ($this->getConfig('list_page_settings/small_image_height') != '') {
                     <?php if (isset($params['char']) && $params['char'] != '' && $params['char'] == '0-9') : ?>
                         <?php $letter = strtoupper(substr($brand->getName(), 0, 1)); ?>
                         <?php if (ctype_digit($letter)): ?>
-                            <li class="item">
+                            <li class="item1">
 								<div class="brand-content hungdz">
 									<div class="brand-image">
 										<a title="<?php echo $brand->getName(); ?>"
@@ -48,7 +48,7 @@ if ($this->getConfig('list_page_settings/small_image_height') != '') {
                             </li>
                         <?php endif; ?>
                     <?php else: ?>
-                        <li class="item">
+                        <li class="item1">
 							<div class="brand-content hungdz">
 								<div class="brand-image">
 									<a title="<?php echo $brand->getName(); ?>"
@@ -72,8 +72,34 @@ if ($this->getConfig('list_page_settings/small_image_height') != '') {
                         </li>
                     <?php endif; ?>
                 <?php endforeach; ?>
+                <script type="text/javascript" xml="space">// <![CDATA[
+                    require(['jquery', 'cpowlcarousel'], function ($) {
+                        jQuery(document).ready(function () {
+                            jQuery(".featured-brand-list").owlCarousel({
+                                loop:true,
+                                margin:10,
+                                nav:false,
+                                dots: false,
+                                dotsSpeed:false,
+                                responsive:{
+                                    items: 5,
+                                    itemsDesktop: [1080, 5],
+                                    itemsDesktopSmall: [860, 3],
+                                    itemsTablet: [768, 3],
+                                    itemsTabletSmall: [639, 3],
+                                    itemsMobile: [479, 2],
+                                    pagination: false,
+                                    navigation: false,
+
+                                }
+                            });
+                        });
+                    });
+                    // ]]></script>
 				<li class="clear"></li>
             </ul>
         </div>
     </div>
 <?php endif; ?>
+
+
