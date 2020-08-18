@@ -4,7 +4,7 @@ namespace SM\SU\Block\Brand;
 
 use Magento\Customer\Model\Context as CustomerContext;
 
-class Featured extends \Magento\Framework\View\Element\Template
+class Featured extends \Magento\Framework\View\Element\Template implements \Magento\Framework\DataObject\IdentityInterface
 {
     protected $_coreRegistry = null;
     protected $_brandHelper;
@@ -91,5 +91,8 @@ class Featured extends \Magento\Framework\View\Element\Template
         $collection->setVisibility($this->_catalogProductVisibility->getVisibleInCatalogIds());
         return count($collection);
     }
-
+    public function getIdentities()
+    {
+        return [\SM\SU\Model\Brand::CACHE_TAG . '_' . $this->getId()];
+    }
 }

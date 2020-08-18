@@ -4,12 +4,9 @@
 
     <body>
         <referenceContainer name="content">
-            <block class="SM\SU\Block\Brands" name="brand_list" template="SM_SU::brands.phtml"  >
+            <block class="SM\SU\Block\Brands" name="brand_list" template="SM_SU::brands.phtml" cacheable="false" >
                 <block class="SM\SU\Block\Search" name="brand_search" template="SM_SU::search.phtml"/>
-<!--                <block class="SM\SU\Block\Toolbar" name="sm_toolbar" template="SM_SU::toolbar.phtml">-->
-<!--                    <block class="Magento\Theme\Block\Html\Pager" name="brand_list_toolbar_pager"/>-->
-<!--                </block>-->
-                <block class="Magento\Framework\View\Element\Template" name="brand_filter_by_character" template="SM_SU::character.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="brand_filter_by_character" template="SM_SU::character.phtml" cacheable="false"/>
                 <block class="SM\SU\Block\Brand\Featured" name="brand_list_featured" template="SM_SU::brand/featured.phtml"/>
             </block>
         </referenceContainer>

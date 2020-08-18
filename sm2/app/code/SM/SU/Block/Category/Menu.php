@@ -13,7 +13,7 @@ use SM\SU\Model\ResourceModel\Brand\CollectionFactory;
  * Class Widget
  * @package SM\Brand\Block\Category
  */
-class Menu extends Template
+class Menu extends Template implements \Magento\Framework\DataObject\IdentityInterface
 {
     /**
      * @var CollectionFactory
@@ -82,4 +82,8 @@ class Menu extends Template
     /**
      * @return string
      */
+    public function getIdentities()
+    {
+        return [\SM\SU\Model\Brand::CACHE_TAG . '_' . $this->getId()];
+    }
 }

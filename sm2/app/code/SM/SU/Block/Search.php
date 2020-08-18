@@ -14,7 +14,7 @@ use SM\SU\Model\ResourceModel\Brand\CollectionFactory;
  * Class Search
  * @package SM\SU\Block
  */
-class Search extends Template
+class Search extends Template implements \Magento\Framework\DataObject\IdentityInterface
 {
     /**
      * @var \Magento\Framework\Json\Helper\Data
@@ -65,5 +65,9 @@ class Search extends Template
 
         return $encodedData;
         var_dump();
+    }
+    public function getIdentities()
+    {
+        return [\SM\SU\Model\Brand::CACHE_TAG . '_' . $this->getId()];
     }
 }

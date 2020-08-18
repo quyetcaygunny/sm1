@@ -8,7 +8,7 @@ class NewAction extends \Magento\Backend\App\Action
      * @var \Magento\Backend\Model\View\Result\Forward
      */
     protected $resultForwardFactory;
-
+    const ADMIN_RESOURCE = 'SM_SU::brand_edit';
     /**
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
@@ -26,7 +26,7 @@ class NewAction extends \Magento\Backend\App\Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('SM_SU::brand_edit');
+        return $this->_authorization->isAllowed(static::ADMIN_RESOURCE);
     }
 
     /**

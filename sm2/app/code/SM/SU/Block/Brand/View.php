@@ -12,7 +12,7 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use SM\SU\Helper\Data;
 use Magento\Directory\Model\CountryFactory;
-class View extends Template
+class View extends Template implements \Magento\Framework\DataObject\IdentityInterface
 {
     /**
      * @var CountryFactory
@@ -149,5 +149,9 @@ class View extends Template
                 ]
             );
         }
+    }
+    public function getIdentities()
+    {
+        return [\SM\SU\Model\Brand::CACHE_TAG . '_' . $this->getId()];
     }
 }

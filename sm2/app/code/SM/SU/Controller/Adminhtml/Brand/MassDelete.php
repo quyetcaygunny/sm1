@@ -48,6 +48,11 @@ class MassDelete extends \Magento\Backend\App\Action implements HttpPostActionIn
      * @return \Magento\Backend\Model\View\Result\Redirect
      * @throws \Magento\Framework\Exception\LocalizedException|\Exception
      */
+
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed(static::ADMIN_RESOURCE);
+    }
     public function execute()
     {
         $collection = $this->filter->getCollection($this->collectionFactory->create());

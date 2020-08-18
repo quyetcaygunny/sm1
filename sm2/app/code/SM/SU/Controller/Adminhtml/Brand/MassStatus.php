@@ -9,6 +9,7 @@ use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Ui\Component\MassAction\Filter;
+use phpDocumentor\Reflection\Types\Static_;
 use SM\SU\Model\ResourceModel\Brand\CollectionFactory;
 
 /**
@@ -32,6 +33,8 @@ class MassStatus extends Action
      * @param Filter $filter
      * @param CollectionFactory $collectionFactory
      */
+    const ADMIN_RESOURCE = 'SM_SU::brand';
+
 
     public function __construct(Context $context, Filter $filter,  CollectionFactory $collectionFactory)
     {
@@ -63,6 +66,6 @@ class MassStatus extends Action
     }
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('SM_SU::brand_save');
+        return $this->_authorization->isAllowed(static::ADMIN_RESOURCE);
     }
 }

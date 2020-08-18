@@ -15,7 +15,10 @@ class InlineEdit extends \Magento\Backend\App\Action
         parent::__construct($context);
         $this->jsonFactory = $jsonFactory;
     }
-
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed(static::ADMIN_RESOURCE);
+    }
     public function execute()
     {
         /** @var \Magento\Framework\Controller\Result\Json $resultJson */
