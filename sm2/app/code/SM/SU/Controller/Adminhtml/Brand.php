@@ -17,7 +17,7 @@ abstract class Brand extends \Magento\Backend\App\Action
     protected $_viewHelper;
     protected $resultLayoutFactory;
     protected $resultPageFactory;
-
+    const ADMIN_RESOURCE = 'SM_SU::brand';
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
@@ -46,6 +46,6 @@ abstract class Brand extends \Magento\Backend\App\Action
 
         protected function _isAllowed()
         {
-            return $this->_authorization->isAllowed('SM_SU::brand');
+            return $this->_authorization->isAllowed(static::ADMIN_RESOURCE);
         }
 }

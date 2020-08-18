@@ -10,7 +10,7 @@ class Save extends \Magento\Backend\App\Action
      * @var \Magento\Framework\Filesystem
      */
     protected $_fileSystem;
-
+    const ADMIN_RESOURCE = 'SM_SU::brand_save';
     /**
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\ObjectManagerInterface $objectManager
@@ -31,7 +31,7 @@ class Save extends \Magento\Backend\App\Action
      */
     protected function _isAllowed()
     {
-    	return $this->_authorization->isAllowed('SM_SU::brand_save');
+    	return $this->_authorization->isAllowed(static::ADMIN_RESOURCE);
     }
 
     /**

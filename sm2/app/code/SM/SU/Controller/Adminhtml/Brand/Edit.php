@@ -4,6 +4,7 @@ namespace SM\SU\Controller\Adminhtml\Brand;
 
 class Edit extends \SM\SU\Controller\Adminhtml\Brand
 {
+    const ADMIN_RESOURCE = 'SM_SU::edit_brand';
     public function execute()
     {
         $id = $this->getRequest()->getParam('brand_id');
@@ -34,6 +35,6 @@ class Edit extends \SM\SU\Controller\Adminhtml\Brand
 
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('SM_SU::edit_brand');
+        return $this->_authorization->isAllowed(static::ADMIN_RESOURCE);
     }
 }

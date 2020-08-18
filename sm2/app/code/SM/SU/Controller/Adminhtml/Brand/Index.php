@@ -4,6 +4,7 @@ namespace SM\SU\Controller\Adminhtml\Brand;
 
 class Index extends \SM\SU\Controller\Adminhtml\Brand
 {
+    const ADMIN_RESOURCE = 'SM_SU::manage_brand';
     public function execute()
     {
         //die('dit cu m');
@@ -17,6 +18,6 @@ class Index extends \SM\SU\Controller\Adminhtml\Brand
 
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('SM_::manage_brand');
+        return $this->_authorization->isAllowed(static::ADMIN_RESOURCE);
     }
 }

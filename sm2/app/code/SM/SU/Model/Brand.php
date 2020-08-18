@@ -5,13 +5,14 @@ use Magento\Framework\DataObject\IdentityInterface;
 /**
  * Brand Model
  */
-class Brand extends \Magento\Framework\Model\AbstractModel
+class Brand extends \Magento\Framework\Model\AbstractModel  implements IdentityInterface
 {
     /**
      * Brand's Statuses
      */
     const STATUS_ENABLED = 1;
     const STATUS_DISABLED = 0;
+    const CACHE_TAG = 'sm_brand';
 
     /**
      * Product collection factory
@@ -182,5 +183,9 @@ class Brand extends \Magento\Framework\Model\AbstractModel
     public function getTag()
     {
         return $this->getData('first_letter');
+    }
+    public function getIdentities()
+    {
+        return [self::CACHE_TAG . '_' . $this->getId()];
     }
 }

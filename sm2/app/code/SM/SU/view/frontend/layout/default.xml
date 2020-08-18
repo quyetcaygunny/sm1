@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-                <css src="SM_SU::css/owl.carousel.css"/>
-                <css src="SM_SU::css/owl.theme.css"/>
-                <css src="SM_SU::css/owl.transitions.css"/>
-                <css src="SM_SU::css/fancybox/jquery.fancybox.css"/>
+        <css src="SM_SU::css/owl.carousel.css"/>
+        <css src="SM_SU::css/owl.theme.css"/>
+        <css src="SM_SU::css/owl.transitions.css"/>
+        <css src="SM_SU::css/fancybox/jquery.fancybox.css"/>
         <css src="SM_SU::css/font-awesome.min.css"/>
         <css src="SM_SU::css/smstyle.css"/>
     </head>

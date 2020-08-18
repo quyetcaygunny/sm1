@@ -8,7 +8,7 @@
         <column xsi:type="varchar" name="url_key" length="255" nullable="false" comment="url_key"/>
         <column xsi:type="varchar" name="image" length="255" nullable="false" default="" comment="image"/>
         <column xsi:type="varchar" name="small_image" length="255" nullable="false" default="" comment="small_image"/>
-        <column xsi:type="smallint" name="is_featured" nullable="false" comment="is_featured" default="0"/>
+<!--        <column xsi:type="smallint" name="is_featured" nullable="false" comment="is_featured" default="0"/>-->
         <column xsi:type="smallint" name="status" nullable="false" comment="status" default="1"/>
         <column xsi:type="int" name="option_id" nullable="false" unsigned="true" comment="option_id" default="0"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">

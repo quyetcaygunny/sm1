@@ -3,7 +3,7 @@
 namespace SM\SU\Block;
 use Magento\Customer\Model\Context as CustomerContext;
 
-class Brands extends \Magento\Framework\View\Element\Template
+class Brands extends \Magento\Framework\View\Element\Template implements \Magento\Framework\DataObject\IdentityInterface
 {
     /**
      * Group Collection
@@ -172,6 +172,10 @@ class Brands extends \Magento\Framework\View\Element\Template
         $collection = $brand->getProductCollection();
         $collection->setVisibility($this->_catalogProductVisibility->getVisibleInCatalogIds());
         return count($collection);
+    }
+    public function getIdentities()
+    {
+        return [\SM\SU\Model\Brand::CACHE_TAG . '_' . $this->getId()];
     }
 
 }
